@@ -16,7 +16,10 @@ func Run() {
 		panic(err)
 	}
 	service := proto.NewCepServiceClient(conn)
-	input := proto.CepRequest{Cep: "18685-380"}
+	fmt.Println("Digite o cep: ")
+	var cep string
+	fmt.Scan(&cep)
+	input := proto.CepRequest{Cep: cep}
 	response, err := service.GetCep(context.Background(), &input)
 	if err != nil {
 		panic(err)
